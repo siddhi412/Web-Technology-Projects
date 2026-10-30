@@ -1,105 +1,56 @@
-// Variables
-var bankName = "Secure Bank Ltd.";
-let customer = "Regular";
-const minIncome = 25000;
+// alert("HI");
+function checkLoanEligibility() {
+    const age = Number(document.getElementById("age").value);
+    const salary = Number(document.getElementById("salary").value);
+    const creditScore = Number(document.getElementById("creditScore").value);
 
+    const result = document.getElementById("loanResult");
 
-// Function to calculate interest
-function interest(amount, rate, time) {
-    return (amount * rate * time) / 100;
+    // Validate input
+    if (!age || !salary || !creditScore) {
+        result.innerHTML = "Please enter all the required details.";
+        return;
+    }
+
+    // Loan eligibility criteria
+    if (age >= 21 && age <= 60 &&
+        salary >= 25000 &&
+        creditScore >= 700) {
+
+        result.innerHTML = "✓ You are eligible for the loan.";
+    } else {
+        result.innerHTML = "✗ You are not eligible for the loan.";
+    }
 }
 
+function calculateEMI() {
+    const loanAmount = Number(document.getElementById("loanAmount").value);
+    const annualRate = Number(document.getElementById("interestRate").value);
+    const years = Number(document.getElementById("loanYears").value);
 
-// Main function
-function calculate() {
+    const result = document.getElementById("emiResult");
 
-    let amount = Number(document.getElementById("amount").value);
-    let rate = Number(document.getElementById("rate").value);
-    let time = Number(document.getElementById("time").value);
-    let income = Number(document.getElementById("income").value);
-
-    let result = "";
-
-    // Arithmetic operator
-    let int = interest(amount, rate, time);
-    let total = amount + int;
-
-    result += "Bank: " + bankName + "<br>";
-    result += "Customer: " + customer + "<br>";
-    result += "Interest = ₹" + int + "<br>";
-    result += "Total Amount = ₹" + total + "<br>";
-
-
-    // If-else and logical operators
-    if (income >= minIncome && amount <= income * 10) {
-        result += "Loan Status: Eligible<br>";
-    }
-    else {
-        result += "Loan Status: Not Eligible<br>";
+    if (loanAmount <= 0 || annualRate < 0 || years <= 0) {
+        result.innerHTML = "Please enter valid values.";
+        return;
     }
 
+    // Convert annual interest rate to monthly rate
+    const monthlyRate = annualRate / 12 / 100;
 
-    // Conditional operator
-    let status = income >= minIncome ? "Good Income" : "Low Income";
-    result += "Income: " + status + "<br>";
+    // Convert years to months
+    const months = years * 12;
 
+    let emi;
 
-    // Nested if
-    if (income >= minIncome) {
-        if (amount <= income * 10) {
-            result += "Loan condition is satisfied.<br>";
-        }
+    // If interest rate is 0
+    if (monthlyRate === 0) {
+        emi = loanAmount / months;
+    } else {
+        emi = loanAmount * monthlyRate *
+              Math.pow(1 + monthlyRate, months) /
+              (Math.pow(1 + monthlyRate, months) - 1);
     }
 
-
-    // Switch statement
-    let choice = 1;
-
-    switch (choice) {
-        case 1:
-            result += "Account Type: Savings<br>";
-            break;
-
-        case 2:
-            result += "Account Type: Current<br>";
-            break;
-
-        default:
-            result += "Invalid Account Type<br>";
-    }
-
-
-    // For loop
-    result += "<br>Interest for each year:<br>";
-
-    for (let i = 1; i <= time; i++) {
-        result += "Year " + i + " = ₹" +
-                  interest(amount, rate, i) + "<br>";
-    }
-
-
-    // While loop
-    result += "<br>While Loop:<br>";
-
-    let i = 1;
-
-    while (i <= 3) {
-        result += "Account Summary " + i + "<br>";
-        i++;
-    }
-
-
-    // Do-while loop
-    result += "<br>Do-While Loop:<br>";
-
-    let j = 1;
-
-    do {
-        result += "Transaction " + j + "<br>";
-        j++;
-    } while (j <= 3);
-
-
-    // Display result
-    document.getElementById("result").innerHTML = result;
+    result.innerHTML = "Monthly EMI: ₹" + emi.toFixed(2);
 }
