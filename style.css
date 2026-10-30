@@ -1,0 +1,68 @@
+/* Basic styling for the demonstration webpage */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f2f5f9;
+    color: #222;
+}
+
+header {
+    background-color: #304c89;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 16px;
+}
+
+section {
+    background-color: white;
+    margin-bottom: 16px;
+    padding: 18px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+h2 {
+    color: #304c89;
+    margin-top: 0;
+}
+
+button {
+    background-color: #304c89;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #203461;
+}
+
+input {
+    padding: 8px;
+    margin: 6px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+#mouseBox {
+    background-color: #dce8ff;
+    padding: 24px;
+    text-align: center;
+    border: 2px dashed #304c89;
+    border-radius: 6px;
+}
+
+footer {
+    text-align: center;
+    padding: 14px;
+    color: #555;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Interactive Webpage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1 id="pageTitle">Welcome to My Store</h1>
+        <p>A simple demonstration of DOM and JavaScript events</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>1. Change Text</h2>
+            <p id="message">This text will change when you click the button.</p>
+            <button id="changeButton">Change Text</button>
+        </section>
+
+        <section>
+            <h2>2. Change Background Colour</h2>
+            <p>Click the button to change the colour of this box.</p>
+            <button id="colorButton">Change Colour</button>
+        </section>
+
+        <section>
+            <h2>3. Respond to Mouse Events</h2>
+            <div id="mouseBox">Move your mouse over this box.</div>
+        </section>
+
+        <section>
+            <h2>4. Read Input from a Form</h2>
+            <label for="nameInput">Enter your name:</label>
+            <input type="text" id="nameInput" placeholder="Your name">
+            <button id="greetButton">Greet Me</button>
+            <p id="greeting"></p>
+        </section>
+
+        <section>
+            <h2>5. Add an Item to a List</h2>
+            <label for="itemInput">Enter an item:</label>
+            <input type="text" id="itemInput" placeholder="e.g. Notebook">
+            <button id="addButton">Add Item</button>
+            <ul id="itemList">
+                <li>Pen</li>
+                <li>Pencil</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Remove an Item</h2>
+            <p>Click the Remove Last Item button to remove the last item from the list above.</p>
+            <button id="removeButton">Remove Last Item</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Practical 4: DOM Manipulation and Event Handling</p>
+    </footer>
+</body>
+</html>
