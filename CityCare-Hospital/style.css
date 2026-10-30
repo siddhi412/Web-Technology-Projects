@@ -1,0 +1,217 @@
+/* ==============================
+   General Page Styling
+   ============================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f6f9;
+    margin: 0;
+    padding: 30px;
+}
+
+
+/* ==============================
+   Main Container
+   ============================== */
+
+.container {
+    max-width: 850px;
+    margin: auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ==============================
+   Heading
+   ============================== */
+
+h1 {
+    text-align: center;
+    color: #087f8c;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   Form Groups
+   ============================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+/* ==============================
+   Labels
+   ============================== */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+
+/* ==============================
+   Input Controls
+   ============================== */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 11px;
+
+    border: 1px solid #bbb;
+    border-radius: 5px;
+
+    font-size: 15px;
+}
+
+
+/* Input Focus */
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #087f8c;
+    box-shadow: 0 0 4px rgba(8, 127, 140, 0.3);
+}
+
+
+/* ==============================
+   Radio Buttons
+   ============================== */
+
+.radio-group {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.radio-group label {
+    font-weight: normal;
+    margin: 0;
+}
+
+.radio-group input {
+    width: auto;
+    margin-right: 5px;
+}
+
+
+/* ==============================
+   Checkbox
+   ============================== */
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+
+.checkbox-group input {
+    width: auto;
+}
+
+
+/* ==============================
+   Error Messages
+   ============================== */
+
+.error {
+    display: block;
+    color: #d00000;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+
+/* ==============================
+   Success Message
+   ============================== */
+
+.success {
+    color: green;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+/* ==============================
+   Password Strength
+   ============================== */
+
+.password-strength {
+    margin-top: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+/* ==============================
+   Submit Button
+   ============================== */
+
+button {
+    width: 100%;
+    padding: 13px;
+
+    border: none;
+    border-radius: 5px;
+
+    background-color: #087f8c;
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* Button Hover */
+
+button:hover {
+    background-color: #056873;
+}
+
+
+/* ==============================
+   Responsive Design
+   ============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    .radio-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
