@@ -1,0 +1,9 @@
+{
+"name": "techmart-crud-app",
+"version": "1.0.0",
+"description": "TechMart Electronics Inventory Management System",
+"main": "server.js",
+"dependencies": {
+"express": "^4.19.2"
+}
+}

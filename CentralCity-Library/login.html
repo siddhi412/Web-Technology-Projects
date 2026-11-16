@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Central City Library - Login</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>🏦 Central City Library Portal</h1>
+<p>Secure Member Authentication</p>
+</header>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="login.html" class="active">Login</a>
+<a href="dashboard.html">Dashboard</a>
+</nav>
+<div class="container">
+<div class="card">
+<h2>Member Login</h2>
+<p class="hint">Default Credentials -> Username:
+<b>student</b> | Password: <b>password123</b></p>
+<form id="loginForm">
+<div class="form-group">
+<label for="username">Username:</label>
+<input type="text" id="username" required
+
+placeholder="Enter username">
+</div>
+<div class="form-group">
+<label for="password">Password:</label>
+<input type="password" id="password" required
+
+placeholder="Enter password">
+</div>
+<button type="submit">Login</button>
+</form>
+<p id="message" class="message"></p>
+</div>
+</div>
+<script>
+const urlParams = new
+URLSearchParams(window.location.search);
+const errorMsg = urlParams.get('error');
+if (errorMsg) {
+const msg = document.getElementById('message');
+msg.textContent = errorMsg;
+msg.style.color = "#e74c3c";
+}
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', async (e) => {
+e.preventDefault();
+const username =
+document.getElementById('username').value;
+const password =
+document.getElementById('password').value;
+try {
+const response = await fetch('/api/login', {
+method: 'POST',
+
+headers: { 'Content-Type': 'application/json'
+
+},
+body: JSON.stringify({ username, password })
+});
+const result = await response.json();
+if (!response.ok) throw new Error(result.error);
+window.location.href = result.redirect;
+} catch (error) {
+const msg = document.getElementById('message');
+msg.textContent = error.message;
+msg.style.color = "#e74c3c";
+}
+});
+</script>
+</body>
+</html>

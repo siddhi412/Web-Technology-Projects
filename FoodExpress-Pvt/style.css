@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Colorful Category Boxes */
+.category {
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+.cat-pizza {
+    background-color: #ffeaa7;
+    color: #d63031;
+}
+
+.cat-burger {
+    background-color: #fab1a0;
+    color: #2d3436;
+}
+
+.cat-sandwich {
+    background-color: #55efc4;
+    color: #006266;
+}
+
+.cat-drinks {
+    background-color: #74b9ff;
+    color: #0984e3;
+}
+
+.card {
+    border: 2px solid #ffeaa7;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.order-form {
+    max-width: 500px;
+    margin: auto;
+    border: 2px solid #ff7675;
+}
+
+@media (max-width: 576px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+}

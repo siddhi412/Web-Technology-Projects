@@ -1,0 +1,10 @@
+{
+"name": "library-portal",
+"version": "1.0.0",
+"description": "Central City Library Session & Authentication Portal",
+"main": "server.js",
+"dependencies": {
+"express": "^4.19.2",
+"express-session": "^1.18.0"
+}
+}

@@ -1,0 +1,9 @@
+{
+"name": "quickshop-api-app",
+"version": "1.0.0",
+"description": "REST API integration web application",
+"main": "server.js",
+"dependencies": {
+"express": "^4.19.2"
+}
+}

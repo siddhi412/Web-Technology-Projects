@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+
+<title>Central City Library - Member Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1>🏦 Central City Library Portal</h1>
+<p>Protected Member Dashboard</p>
+</header>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="login.html">Login</a>
+<a href="dashboard.html" class="active">Dashboard</a>
+</nav>
+<div class="container">
+<div class="card">
+<h2>Welcome, <span id="userSpan">Member</span>!</h2>
+<p>You have successfully authenticated and accessed the
+secure library management dashboard.</p>
+<br>
+<h3>Your Borrowed Books:</h3>
+<ul style="margin-left: 20px; margin-top: 10px;">
+<li>Introduction to Node.js & Express (Due: Next
+Week)</li>
+<li>Database Management Systems (Due: In 3
+Days)</li>
+</ul>
+<br>
+
+<button id="logoutBtn" class="btn-
+danger">Logout</button>
+
+</div>
+</div>
+<script>
+async function checkAccess() {
+try {
+const response = await fetch('/api/check-session');
+const data = await response.json();
+if (!data.isAuthenticated) {
+window.location.href =
+'/login.html?error=Session expired. Please log in again.';
+} else {
+document.getElementById('userSpan').textContent
+= data.username;
+}
+} catch (error) {
+window.location.href = '/login.html';
+}
+}
+document.getElementById('logoutBtn').addEventListener('click',
+async () => {const response = await fetch('/api/logout');
+const result = await response.json();
+window.location.href = result.redirect;
+});
+checkAccess();
+</script>
+</body>
+</html>

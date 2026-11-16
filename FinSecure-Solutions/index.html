@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePay Employee Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <header>
+        <h1>SecurePay Solutions</h1>
+        <p>Employee Login and Account Management System</p>
+    </header>
+
+    <main class="container">
+
+        <!-- LOGIN AND REGISTRATION SECTION -->
+        <section class="card" id="authSection">
+
+            <div class="tabs">
+                <button type="button" id="showRegister" class="active">
+                    Create Account
+                </button>
+                <button type="button" id="showLogin">
+                    Sign In
+                </button>
+            </div>
+
+            <!-- REGISTRATION FORM -->
+            <form id="registerForm">
+                <h2>Employee Registration</h2>
+
+                <label for="registerUsername">Enter Username</label>
+                <input
+                    id="registerUsername"
+                    type="text"
+                    minlength="3"
+                    maxlength="30"
+                    autocomplete="username"
+                    placeholder="Choose a username"
+                    required
+                >
+
+                <label for="registerPassword">Create Password</label>
+                <input
+                    id="registerPassword"
+                    type="password"
+                    minlength="8"
+                    maxlength="128"
+                    autocomplete="new-password"
+                    placeholder="Create a strong password"
+                    required
+                >
+
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    id="confirmPassword"
+                    type="password"
+                    autocomplete="new-password"
+                    placeholder="Enter password again"
+                    required
+                >
+
+                <p class="hint">
+                    Password must contain at least 8 characters,
+                    including uppercase, lowercase, a number
+                    and a special character.
+                </p>
+
+                <button class="primary" type="submit">
+                    Create Account
+                </button>
+
+                <p id="registerMessage" class="message" role="status"></p>
+            </form>
+
+            <!-- LOGIN FORM -->
+            <form id="loginForm" hidden>
+                <h2>Employee Sign In</h2>
+
+                <label for="loginUsername">Username</label>
+                <input
+                    id="loginUsername"
+                    type="text"
+                    autocomplete="username"
+                    placeholder="Enter your username"
+                    required
+                >
+
+                <label for="loginPassword">Password</label>
+                <input
+                    id="loginPassword"
+                    type="password"
+                    autocomplete="current-password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+                <button class="primary" type="submit">
+                    Sign In
+                </button>
+
+                <p id="loginMessage" class="message" role="status"></p>
+            </form>
+
+        </section>
+
+        <!-- EMPLOYEE DASHBOARD -->
+        <section class="card" id="dashboardSection" hidden>
+            <h2>Welcome to Your Dashboard</h2>
+            <p id="welcomeMessage"></p>
+
+            <h3>Input Security Testing</h3>
+            <p>
+                Enter any text or HTML-like content below.
+                The system will display it safely without
+                executing any unwanted code.
+            </p>
+
+            <form id="commentForm">
+                <label for="comment">Enter Your Test Message</label>
+                <textarea
+                    id="comment"
+                    rows="3"
+                    maxlength="500"
+                    placeholder="Type your message here..."
+                    required
+                ></textarea>
+
+                <button class="primary" type="submit">
+                    Check Input
+                </button>
+            </form>
+
+            <p id="commentMessage" class="message" role="status"></p>
+
+            <div class="output">
+                <strong>Result:</strong>
+                <p id="commentOutput"></p>
+            </div>
+
+            <button type="button" id="logoutButton" class="danger">
+                Sign Out
+            </button>
+        </section>
+
+        <!-- SECURITY INFORMATION -->
+        <section class="card">
+            <h2>Application Security Features</h2>
+            <ul>
+                <li>Input validation on the server</li>
+                <li>Secure database queries</li>
+                <li>Password hashing with salt</li>
+                <li>Session-based user authentication</li>
+                <li>Dashboard access protection</li>
+                <li>Protection against Cross-Site Scripting (XSS)</li>
+                <li>Secure error handling</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>SecurePay Solutions | Practical 10 - Web Technology Framework</p>
+    </footer>
+
+</body>
+</html>

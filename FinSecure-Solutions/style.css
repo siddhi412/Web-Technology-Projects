@@ -1,0 +1,205 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    color: #2c3e50;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #263c56;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #d5e1ef;
+}
+
+/* Main Container */
+.container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* Card Design */
+.card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: #263c56;
+    margin-bottom: 18px;
+    border-left: 5px solid #e67e35;
+    padding-left: 12px;
+}
+
+.card h3 {
+    color: #34495e;
+    margin: 20px 0 10px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tabs button {
+    flex: 1;
+    background-color: #e5eaf0;
+    color: #263c56;
+}
+
+.tabs button.active {
+    background-color: #263c56;
+    color: white;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin: 12px 0 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #e67e35;
+    box-shadow: 0 0 5px rgba(230, 126, 53, 0.25);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Buttons */
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.primary {
+    background-color: #e67e35;
+    color: white;
+    margin-top: 18px;
+}
+
+.primary:hover {
+    background-color: #c96520;
+}
+
+.danger {
+    background-color: #c0392b;
+    color: white;
+    margin-top: 20px;
+}
+
+.danger:hover {
+    background-color: #962d22;
+}
+
+/* Hint and Messages */
+.hint {
+    font-size: 13px;
+    color: #718096;
+    margin-top: 8px;
+}
+
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Output Section */
+.output {
+    background-color: #f1f5f9;
+    border-left: 4px solid #e67e35;
+    padding: 15px;
+    margin-top: 18px;
+    border-radius: 6px;
+    overflow-wrap: anywhere;
+}
+
+.output strong {
+    color: #263c56;
+}
+
+/* Security Features List */
+ul {
+    padding-left: 25px;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #4a5568;
+}
+
+/* Footer */
+footer {
+    background-color: #263c56;
+    color: white;
+    text-align: center;
+    padding: 18px;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    .container {
+        margin: 18px auto;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-
+scale=1.0">
+<title>QuickShop Online Marketplace - REST API
+Integration</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<h1> QuickShop Online Marketplace</h1>
+<p>Dynamic Product Catalog Powered by REST API & JSON Data
+Exchange</p>
+</header>
+<div class="container">
+<section class="card-section">
+<h2>Add New Product (POST Request)</h2>
+<form id="productForm">
+<div class="form-group">
+<label for="title">Product Title:</label>
+<input type="text" id="title" required
+
+placeholder="e.g. Running Shoes">
+</div>
+<div class="form-group">
+<label for="price">Price (₹):</label>
+<input type="number" id="price" required
+
+placeholder="e.g. 1999">
+</div>
+<div class="form-group">
+<label for="category">Category:</label>
+<input type="text" id="category" required
+
+placeholder="e.g. Footwear">
+</div>
+<div class="form-group">
+<label for="image">Image URL
+(Optional):</label>
+<input type="url" id="image"
+placeholder="https://example.com/image.jpg">
+</div>
+<button type="submit">Submit Product</button>
+</form>
+<p id="formMessage" class="message"></p>
+</section>
+<section class="card-section">
+<div class="catalog-header">
+<h2>Product Catalog (GET Request)</h2>
+<button id="refreshBtn">Refresh Products</button>
+</div>
+<p id="statusMessage" class="message"></p>
+<div id="productGrid" class="grid">
+</div>
+</section>
+</div>
+<script>
+const productForm = document.getElementById('productForm');
+const productGrid = document.getElementById('productGrid');
+const refreshBtn = document.getElementById('refreshBtn');
+const formMessage = document.getElementById('formMessage');
+const statusMessage =
+document.getElementById('statusMessage');
+const API_URL = '/api/products';
+async function fetchProducts() {
+statusMessage.textContent = "Loading products from API...";
+statusMessage.style.color = "#2980b9";
+productGrid.innerHTML = "";
+try {
+const response = await fetch(API_URL);
+if (!response.ok) {
+throw new Error(`HTTP error! Status:
+${response.status}`);
+}
+const data = await response.json();
+statusMessage.textContent = "";
+if (data.length === 0) {
+productGrid.innerHTML = "<p>No products available.</p>";
+return;
+}
+data.forEach(product => {
+const card = document.createElement('div');
+
+card.className = 'product-card';
+card.innerHTML = `
+
+<img src="${escapeHtml(product.image)}"
+alt="${escapeHtml(product.title)}"
+onerror="this.src='https://images.unsplash.com/photo-1523275335684-
+37898b6baf30?w=300'">
+<div class="product-info">
+
+<span class="category-
+tag">${escapeHtml(product.category)}</span>
+
+<h3>${escapeHtml(product.title)}</h3>
+<p class="price">₹${product.price}</p>
+
+</div>
+`;
+productGrid.appendChild(card);
+});
+} catch (error) {
+statusMessage.textContent = "Failed to load products from server. Please check your connection.";
+statusMessage.style.color = "#e74c3c";
+}
+}
+productForm.addEventListener('submit', async (e) => {
+e.preventDefault();
+formMessage.textContent = "Sending data to server...";
+formMessage.style.color = "#2980b9";
+const newProduct = {
+title: document.getElementById('title').value,
+price: document.getElementById('price').value,
+category:
+document.getElementById('category').value,
+image: document.getElementById('image').value
+};
+try {
+const response = await fetch(API_URL, {
+    method: 'POST',
+
+headers: { 'Content-Type': 'application/json'
+
+},
+body: JSON.stringify(newProduct)
+});
+const result = await response.json();
+if (!response.ok) {
+throw new Error(result.error || "Failed to add product.");
+}
+formMessage.textContent = result.message;
+formMessage.style.color = "#27ae60";
+productForm.reset();
+fetchProducts();
+} catch (error) {
+formMessage.textContent = error.message;
+formMessage.style.color = "#e74c3c";
+}
+});
+refreshBtn.addEventListener('click', fetchProducts);
+function escapeHtml(text) {
+if (!text) return "";
+return String(text).replace(/&/g, "&amp;")
+.replace(/</g, "&lt;")
+.replace(/>/g, "&gt;")
+.replace(/"/g, "&quot;")
+.replace(/'/g, "&#039;");
+
+}
+fetchProducts();
+</script>
+</body>
+</html>

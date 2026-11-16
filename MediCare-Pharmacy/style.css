@@ -1,0 +1,26 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero-banner {
+    background: linear-gradient(135deg, #0d6efd, #0dcaf0);
+}
+
+.med-card {
+    border: none;
+    border-top: 4px solid #0d6efd;
+    transition: transform 0.2s;
+}
+
+.med-card:hover {
+    transform: translateY(-5px);
+}
+
+.order-box {
+    max-width: 500px;
+    border-top: 4px solid #198754;
+}

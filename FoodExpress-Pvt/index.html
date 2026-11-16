@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-orange-50">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">🍔 FoodExpress</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#categories">Categories</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#food">Food Items</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="text-center bg-warning-subtle p-5 border-bottom border-warning">
+        <h1 class="text-3xl font-bold text-danger">Welcome to FoodExpress</h1>
+        <p class="mt-3 text-dark">Delicious, hot food delivered straight to your doorstep!</p>
+        <a href="#food" class="btn btn-danger mt-3 px-4">Order Now</a>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="categories" class="container my-5">
+        <h2 class="text-center text-2xl font-bold mb-4 text-dark">Food Categories</h2>
+        <div class="row text-center g-3">
+            <div class="col-6 col-md-3">
+                <div class="category cat-pizza p-4 rounded shadow-sm">
+                    <h5>🍕 Pizza</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="category cat-burger p-4 rounded shadow-sm">
+                    <h5>🍔 Burger</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="category cat-sandwich p-4 rounded shadow-sm">
+                    <h5>🥪 Sandwich</h5>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="category cat-drinks p-4 rounded shadow-sm">
+                    <h5>🥤 Drinks</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED FOOD ITEMS -->
+    <section id="food" class="container my-5">
+        <h2 class="text-center text-2xl font-bold mb-4 text-dark">Featured Food Items</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://placehold.co/400x250/ff6b6b/ffffff?text=Cheese+Pizza" class="card-img-top" alt="Pizza">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-bold">Cheese Pizza</h5>
+                        <p class="text-danger fw-bold">Price: Rs. 199</p>
+                        <button class="btn btn-warning fw-bold" onclick="selectFood('Cheese Pizza')">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://placehold.co/400x250/ffa502/ffffff?text=Veg+Burger" class="card-img-top" alt="Burger">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-bold">Veg Burger</h5>
+                        <p class="text-danger fw-bold">Price: Rs. 99</p>
+                        <button class="btn btn-warning fw-bold" onclick="selectFood('Veg Burger')">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://placehold.co/400x250/2ed573/ffffff?text=Veg+Sandwich" class="card-img-top" alt="Sandwich">
+                    <div class="card-body text-center">
+                        <h5 class="card-title font-bold">Veg Sandwich</h5>
+                        <p class="text-danger fw-bold">Price: Rs. 79</p>
+                        <button class="btn btn-warning fw-bold" onclick="selectFood('Veg Sandwich')">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFER -->
+    <section class="bg-warning text-center p-4 my-5">
+        <h2 class="text-2xl font-bold text-dark">🎉 Special Offer!</h2>
+        <p class="mb-1 fw-semibold">Get 20% OFF on your first order.</p>
+        <p class="mb-0">Use Code: <span class="badge bg-danger fs-6">FOOD20</span></p>
+    </section>
+
+    <!-- ORDER FORM -->
+    <section id="order" class="container my-5">
+        <h2 class="text-center text-2xl font-bold mb-4 text-dark">Place Your Order</h2>
+        <form id="orderForm" class="bg-white p-4 rounded shadow-sm order-form">
+            <div class="mb-3">
+                <label for="name" class="form-label fw-bold">Your Name</label>
+                <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="foodSelect" class="form-label fw-bold">Select Food</label>
+                <select id="foodSelect" class="form-select" required>
+                    <option value="">Choose Food</option>
+                    <option>Cheese Pizza</option>
+                    <option>Veg Burger</option>
+                    <option>Veg Sandwich</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label fw-bold">Delivery Address</label>
+                <textarea id="address" class="form-control" rows="3" placeholder="Enter full address" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-danger w-100 fw-bold">
+                Submit Order
+            </button>
+        </form>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-red-100 text-center p-4 border-top border-danger">
+        <h2 class="text-2xl font-bold text-danger">Contact Us</h2>
+        <p class="mb-1">Email: foodexpress@example.com</p>
+        <p class="mb-0">Phone: +91 9876543210</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-danger text-white text-center p-3">
+        <p class="mb-0">© 2026 FoodExpress Pvt. Ltd.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
